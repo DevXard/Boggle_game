@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %} Board {% endblock %}
+
+{% block board_content %} 
+<div id="container">
+    <h1>Board</h1>
+    <h2 id="time-container"><span id="timer" class="time"></span></h2>
+    <div id="stats">
+    <h2 >Top Score is: <span >{{best_score}}</span> times player: <span>{{times_played}}</span></h2>
+    <h2 >Current Score is: <span id="score">0</span></h2>
+</div>
+    
+
+   
+
+    <table id="table">
+        {% for row in board %}
+            <tr>
+                {% for cell in row %}
+                    <td>{{cell}}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </table>
+
+    <form id="guess-form" action="">
+        <label  for="guess" aria-placeholder="Submit Gues"></label>
+        <input id="guess" type="text" placeholder="Submit Gues">
+        <button>Submit</button>
+    </form>
+
+    <h3 id="flash-msg"></h3>
+
+</div>
+{% endblock %}
